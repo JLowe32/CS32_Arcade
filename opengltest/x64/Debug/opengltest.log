@@ -1,0 +1,7 @@
+﻿  draw.cpp
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\OpenGL\include\GLFW\glfw3.h(123,1): message : see previous definition of 'APIENTRY'
+  Generating Code...
+draw.obj : error LNK2001: unresolved external symbol "public: static class std::vector<class Sprite *,class std::allocator<class Sprite *> > Draw::sprites" (?sprites@Draw@@2V?$vector@PEAVSprite@@V?$allocator@PEAVSprite@@@std@@@std@@A)
+C:\Users\jaren\source\repos\opengltest\x64\Debug\opengltest.exe : fatal error LNK1120: 1 unresolved externals
