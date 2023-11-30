@@ -5,22 +5,24 @@
 #include <GLFW/glfw3.h>
 #include <GL/glut.h>
 
-
 class Game {
 
 private:
-	GLFWwindow* window{};
+	int index;
 
 public:
 	Game();
 	~Game();
 
-	// Functions 
-	void Init(); // Will be used to initalize shaders 
-	void processInput();
-	bool windowClosed();
-	void update();
-	void render();
+	// Functions that deal with the Window 
+	void Init(); // Creates Window Creation
+	void InitW();
+	static void RenderingLoop(void (*func)(void)); // Game Loop to keep the window displayed
+	static void update();
+	static void render();
+	static void reshaping(int w, int h);
+	static void timer(int t);
+
 
 };
 
