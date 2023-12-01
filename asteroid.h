@@ -9,6 +9,8 @@
 
 void drawAsteroid(float x, float y, float size);
 
+void updateAsteroidPosition(float& x, float& y, float velocityX, float velocityY);
+
 void AsteroidMoving();
 
 
