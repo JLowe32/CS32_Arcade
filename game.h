@@ -4,7 +4,6 @@
 
 #include "player.h"
 #include "asteroid.h"
-#include <GLFW/glfw3.h>
 #include <GL/glut.h>
 
 
