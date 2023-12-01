@@ -24,15 +24,15 @@ g++ -o AsteroidGame main.cpp game.cpp asteroid.cpp player.cpp -lGL -lGLU -lglut
 ## Files
 
 **Source File:**
-- `asteroid.cpp`: Description
-- `game.cpp`: Description
-- `player.cpp`: Description
+- `asteroid.cpp`: Implements functionality and visual representation of asteroids.
+- `game.cpp`: Manages the main game loop, window handling, and overall game interaction.
+- `player.cpp`: Handles spaceship functionality, including movement and rendering.
 - `Makefile`: Description
 
 **Header Files:**
-- `asteroid.h`: Description
-- `game.h`:  Description
-- `player.h`: Description
+- `asteroid.h`: Declares asteroid-related functions and properties.
+- `game.h`:  Game logic; declarations of game-related functions and the `Game` class.
+- `player.h`: Handles spaceship, declaring functions and properties related to the player.
 
 
 
