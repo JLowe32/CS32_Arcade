@@ -14,6 +14,7 @@ This project accomodates requirements through the recreation of a 2D space-theme
 - Arrow `Left`: Move the spaceship left. 
 - Arrow `Right`: Move the spaceship right. 
 
+
 ## Compilation and Execution
 To compile and run the game, ensure that you have the required libraries installed. Use the following command to compile the game:
 ```
