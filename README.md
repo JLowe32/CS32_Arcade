@@ -1,4 +1,3 @@
-
 # Asteroid Game Program 
 This project accomodates requirements through the recreation of a 2D space-themed arcade game called "Asteroids" through the development in C++ with OpenGL for rendering. The game features a player-controlled triangle mimicking a spaceship navigating through a field of wild asteroids. The main objective of the game is to continually dodge asteroids and navigate, challenging yourself to see how long you can survive through the task of dodging.  
 
@@ -33,8 +32,3 @@ g++ -o AsteroidGame main.cpp game.cpp asteroid.cpp player.cpp -lGL -lGLU -lglut
 - `asteroid.h`: Declares asteroid-related functions and properties.
 - `game.h`:  Game logic; declarations of game-related functions and the `Game` class.
 - `player.h`: Handles spaceship, declaring functions and properties related to the player.
-
-
-
-
-
