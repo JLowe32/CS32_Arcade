@@ -59,3 +59,8 @@ void AsteroidMoving() {
     drawAsteroid(asteroid2X, asteroid2Y, asteroidSize);
     drawAsteroid(asteroid3X, asteroid3Y, asteroidSize);
 }
+
+
+//Instructions to interact and documentation. Brief description of the game, what it's using, OpenGL, Glut, 
+//TODO: Create a Makefile. 
+//Commenting possibly in any file we need to do.
