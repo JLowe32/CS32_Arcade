@@ -11,7 +11,6 @@ void drawPlayer()
 		if (posY != 49)
 		{
 			posY++;
-			//pDirection = 'N';
 		}
 	}
 	else if (pDirection == 'D')
@@ -19,7 +18,6 @@ void drawPlayer()
 		if (posY != 1)
 		{
 			posY--;
-			//pDirection = 'N';
 		}
 	}
 	else if (pDirection == 'L')
@@ -27,7 +25,6 @@ void drawPlayer()
 		if (posX != 1)
 		{
 			posX--;
-			//pDirection = 'N';
 		}
 	}
 	else if (pDirection == 'R')
@@ -35,13 +32,7 @@ void drawPlayer()
 		if (posX != 49)
 		{
 			posX++;
-			//pDirection = 'N';
 		}
-	}
-	else if (pDirection == 'N')
-	{
-		posX = posX;
-		posY = posY;
 	}
 
 	glBegin(GL_TRIANGLES);
