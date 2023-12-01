@@ -37,39 +37,25 @@ void drawAsteroid(float x, float y, float size)
     glPopMatrix();
 }
 
-void AsteroidMoving()
-{
-    asteroidX += asteroidVelocityX;
-    asteroidY += asteroidVelocityY;
+void updateAsteroidPosition(float& x, float& y, float velocityX, float velocityY) {
+    x += velocityX;
+    y += velocityY;
 
-    asteroid2X += asteroidVelocityX;
-    asteroid2Y += asteroidVelocityY;
+    // Wrap around display screen 
+    if (x < 0.0f) x = 49.0f;
+    if (x > 49.0f) x = 0.0f;
+    if (y < 0.0f) y = 49.0f;
+    if (y > 49.0f) y = 0.0f;
+}
 
-    asteroid3X += asteroidVelocityX;
-    asteroid3Y += asteroidVelocityY;
+void AsteroidMoving() {
+    updateAsteroidPosition(asteroidX, asteroidY, asteroidVelocityX, asteroidVelocityY);
+    updateAsteroidPosition(asteroid2X, asteroid2Y, asteroidVelocityX, asteroidVelocityY);
+    updateAsteroidPosition(asteroid3X, asteroid3Y, asteroidVelocityX, asteroidVelocityY);
 
-    // Wrap around the screen
-    if (asteroidX < 0.0f) asteroidX = 49.0f;
-    if (asteroidX > 49.0f) asteroidX = 0.0f;
-    if (asteroidY < 0.0f) asteroidY = 49.0f;
-    if (asteroidY > 49.0f) asteroidY = 0.0f;
-
-    if (asteroid2X < 0.0f) asteroid2X = 49.0f;
-    if (asteroid2X > 49.0f) asteroid2X = 0.0f;
-    if (asteroid2Y < 0.0f) asteroid2Y = 49.0f;
-    if (asteroid2Y > 49.0f) asteroid2Y = 0.0f;
-
-    if (asteroid3X < 0.0f) asteroid3X = 49.0f;
-    if (asteroid3X > 49.0f) asteroid3X = 0.0f;
-    if (asteroid3Y < 0.0f) asteroid3Y = 49.0f;
-    if (asteroid3Y > 49.0f) asteroid3Y = 0.0f;
-
-
-
-    // Draw the asteroid at the updated position
+    // Asteroids at updated positions
     drawAsteroid(asteroidX, asteroidY, asteroidSize);
     drawAsteroid(asteroid2X, asteroid2Y, asteroidSize);
     drawAsteroid(asteroid3X, asteroid3Y, asteroidSize);
 }
-
 
