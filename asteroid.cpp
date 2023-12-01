@@ -1,5 +1,6 @@
 #include "asteroid.h"
 
+// Asteroid Properties 
 float asteroidX = 2.0f;
 float asteroidY = 2.0f;
 float asteroidSize = 1.3f;
@@ -10,7 +11,8 @@ float asteroid2Y = 36.0f;
 float asteroid3X = 27.0f;
 float asteroid3Y = 6.0f;
 
-void drawAsteroid(float x, float y, float size)
+
+void drawAsteroid(float x, float y, float size) 
 {
     glPushMatrix();
     glTranslatef(x, y, 0.0);
@@ -25,51 +27,35 @@ void drawAsteroid(float x, float y, float size)
     // Draw irregular shape for the asteroid
     const int numVertices = 8;
     for (int i = 0; i <= numVertices; ++i) {
-        float angle = static_cast<float>(i) * 3.3 * M_PI / numVertices;
-        float radius = 0.8 + 0.2 * std::cos(5.0 * angle); 
+        float angle = static_cast<float>(i) * 3.3f * M_PI / numVertices;
+        float radius = 0.8f + 0.2f * std::cos(5.0f * angle); 
         float xPos = radius * std::cos(angle);
         float yPos = radius * std::sin(angle);
         glVertex2f(xPos, yPos);
     }
 
     glEnd();
-
     glPopMatrix();
 }
 
-void AsteroidMoving()
-{
-    asteroidX += asteroidVelocityX;
-    asteroidY += asteroidVelocityY;
+void updateAsteroidPosition(float& x, float& y, float velocityX, float velocityY) {
+    x += velocityX;
+    y += velocityY;
 
-    asteroid2X += asteroidVelocityX;
-    asteroid2Y += asteroidVelocityY;
+    // Wrap around display screen 
+    if (x < 0.0f) x = 49.0f;
+    if (x > 49.0f) x = 0.0f;
+    if (y < 0.0f) y = 49.0f;
+    if (y > 49.0f) y = 0.0f;
+}
 
-    asteroid3X += asteroidVelocityX;
-    asteroid3Y += asteroidVelocityY;
+void AsteroidMoving() {
+    updateAsteroidPosition(asteroidX, asteroidY, asteroidVelocityX, asteroidVelocityY);
+    updateAsteroidPosition(asteroid2X, asteroid2Y, asteroidVelocityX, asteroidVelocityY);
+    updateAsteroidPosition(asteroid3X, asteroid3Y, asteroidVelocityX, asteroidVelocityY);
 
-    // Wrap around the screen
-    if (asteroidX < 0.0f) asteroidX = 49.0f;
-    if (asteroidX > 49.0f) asteroidX = 0.0f;
-    if (asteroidY < 0.0f) asteroidY = 49.0f;
-    if (asteroidY > 49.0f) asteroidY = 0.0f;
-
-    if (asteroid2X < 0.0f) asteroid2X = 49.0f;
-    if (asteroid2X > 49.0f) asteroid2X = 0.0f;
-    if (asteroid2Y < 0.0f) asteroid2Y = 49.0f;
-    if (asteroid2Y > 49.0f) asteroid2Y = 0.0f;
-
-    if (asteroid3X < 0.0f) asteroid3X = 49.0f;
-    if (asteroid3X > 49.0f) asteroid3X = 0.0f;
-    if (asteroid3Y < 0.0f) asteroid3Y = 49.0f;
-    if (asteroid3Y > 49.0f) asteroid3Y = 0.0f;
-
-
-
-    // Draw the asteroid at the updated position
+    // Asteroids at updated positions
     drawAsteroid(asteroidX, asteroidY, asteroidSize);
     drawAsteroid(asteroid2X, asteroid2Y, asteroidSize);
     drawAsteroid(asteroid3X, asteroid3Y, asteroidSize);
 }
-
-
