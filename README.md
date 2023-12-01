@@ -9,10 +9,10 @@ To compile and run the game, ensure that you have the required libraries install
 g++ -o AsteroidGame main.cpp game.cpp asteroid.cpp player.cpp -lGL -lGLU -lglut
 
 ## Game Controls
-Arrow 'Up': Move the spaceship up.
-Arrow 'Down': Move the spaceship down.
-Arrow 'Left': Move the spaceship left.
-Arrow 'Right': Move the spaceship right.
+Arrow `Up`: Move the spaceship up.
+Arrow `Down`: Move the spaceship down.
+Arrow `Left`: Move the spaceship left.
+Arrow `Right`: Move the spaceship right.
 
 ## Files
 
