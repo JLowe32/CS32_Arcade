@@ -64,6 +64,17 @@ void Game::keyBoardInput(int key, int, int)
 
 	glutPostRedisplay();
 
+    if (key == ' ') { // Spacebar = Firing
+        for (int i = 0; i < MAX_BULLETS; ++i) {
+            if (!bullets[i].active) {
+                bullets[i].active = true;
+                bullets[i].x = posX; 
+                bullets[i].y = posY;
+                break;
+            }
+        }
+    }
+
 }
 
 void Game::timer(int t)
@@ -84,9 +95,24 @@ void Game::render()
 
 }
 
-void Game::update()
-{
-	// Use to update player direction, bullet creation/direction, asteroid creation/direction etc.
+void Game::update() {
+    for (int i = 0; i < MAX_BULLETS; ++i) {
+        if (bullets[i].active) {
+            bullets[i].y += 1.0f; // TODO: Adjustment of bullet Speed
+            if (bullets[i].y > 50) bullets[i].active = false; // Deactivation: Out of Bounds
+        }
+    }
 
+	for (int i = 0; i < MAX_BULLETS; ++i) {
+        if (checkCollision(bullets[i], asteroidX, asteroidY, asteroidSize) ||
+            checkCollision(bullets[i], asteroid2X, asteroid2Y, asteroidSize) ||
+            checkCollision(bullets[i], asteroid3X, asteroid3Y, asteroidSize)) {
+            bullets[i].active = false;
+            // TODO: Code to handle asteroid destruction
+        }
+    }
 }
+
+
+
 

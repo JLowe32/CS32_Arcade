@@ -6,4 +6,10 @@
 
 void drawPlayer();
 
+struct Bullet {
+    float x, y;     // Bullet Position
+    bool active;    // Bullet Activision Check
+};
+
+
 #endif 

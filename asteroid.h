@@ -13,6 +13,9 @@ void updateAsteroidPosition(float& x, float& y, float velocityX, float velocityY
 
 void AsteroidMoving();
 
+bool checkCollision(Bullet& bullet, float ax, float ay, float asize);
+
+
 
 
 #endif

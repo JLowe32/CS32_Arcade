@@ -59,3 +59,11 @@ void AsteroidMoving() {
     drawAsteroid(asteroid3X, asteroid3Y, asteroidSize);
 }
 
+
+bool checkCollision(Bullet& bullet, float ax, float ay, float asize) {
+    //TODO: Add box collision detection
+    return bullet.active &&
+           bullet.x < ax + asize && bullet.x > ax - asize &&
+           bullet.y < ay + asize && bullet.y > ay - asize;
+}
+
