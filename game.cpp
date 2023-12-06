@@ -62,6 +62,17 @@ void Game::keyBoardInput(int key, int, int)
 		break;
 	}
 
+	if (key == GLUT_KEY_CTRL_L) { // Spacebar = Firing
+		for (int i = 0; i < 10; ++i) {
+			if (!bullets[i].active) {
+				bullets[i].active = true;
+				bullets[i].x = posX;
+				bullets[i].y = posY;
+				break;
+			}
+		}
+	}
+
 	glutPostRedisplay();
 
 }
@@ -78,6 +89,11 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 	drawPlayer();
+	for (int j = 0; j < 10; j++)
+	{
+		bulletMoving(bullets[j]);
+	}
+	//bulletMoving(bullet[j]);
 	AsteroidMoving();
 	glFlush();
 	glutSwapBuffers();
@@ -89,4 +105,5 @@ void Game::update()
 	// Use to update player direction, bullet creation/direction, asteroid creation/direction etc.
 
 }
+
 
