@@ -4,11 +4,13 @@
 
 #include "player.h"
 #include "asteroid.h"
-#include <GLFW/glfw3.h>
 #include <GL/glut.h>
 
 
 extern char pDirection;
+extern int posX;
+extern int posY;
+extern Bullet bullets[10];
 
 class Game {
 
@@ -32,4 +34,3 @@ public:
 
 
 #endif
-
