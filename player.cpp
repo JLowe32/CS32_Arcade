@@ -1,45 +1,32 @@
 #include "player.h"
 
-int posX{ 25 }, posY{ 25 };
-
-char pDirection{};
+Player playShip;
 
 void drawPlayer()
 {
-	if (pDirection == 'U')
-	{
-		if (posY != 49)
-		{
-			posY++;
-		}
-	}
-	else if (pDirection == 'D')
-	{
-		if (posY != 1)
-		{
-			posY--;
-		}
-	}
-	else if (pDirection == 'L')
-	{
-		if (posX != 1)
-		{
-			posX--;
-		}
-	}
-	else if (pDirection == 'R')
-	{
-		if (posX != 49)
-		{
-			posX++;
-		}
-	}
+    glPushMatrix();
+    glTranslatef(playShip.playerXPos, playShip.playerYPos, 0.0f);
+    glRotatef(playShip.playerAngle, 0.0f, 0.0f, 1.0f);
 
-	glBegin(GL_TRIANGLES);
-	glColor3ub(0, 0, 255);
-	glVertex2f(posX - 0.5f, posY - 0.5f);
-	glVertex2f(posX + 0.5f, posY - 0.5f);
-	glVertex2f(posX, posY + 0.5f);
-	glEnd();
+    glColor3f(0.0f, 0.0f, 255.0f); 
+    glBegin(GL_TRIANGLES);
+    glVertex2f(15.0f, 0.0f);
+    glVertex2f(0.0f, -5.0f);
+    glVertex2f(0.0f, 5.0f);
+    glEnd();
 
+    glPopMatrix();
 }
+
+void movingPlayer()
+{
+    // Handles moving the player in the correction direction using the angle its pointing towards
+    if (playShip.isMoving)
+    {
+        playShip.playerXPos += 2.5f * cos(playShip.playerAngle * M_PI / 180.0f);
+        playShip.playerYPos += 2.5f * sin(playShip.playerAngle * M_PI / 180.0f);
+    }
+}
+
+
+

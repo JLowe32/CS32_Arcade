@@ -8,10 +8,10 @@ This project accomodates requirements through the recreation of a 2D space-theme
 
 ## Game Controls
 **Movement:**
-- Arrow `Up`: Move the spaceship up. 
-- Arrow `Down`: Move the spaceship down. 
-- Arrow `Left`: Move the spaceship left. 
-- Arrow `Right`: Move the spaceship right. 
+- Arrow `Up`: Move the spaceship forward.  
+- Arrow `Left`: Rotate the spaceship left. 
+- Arrow `Right`: Rotate the spaceship right.
+- Left `Ctrl`: To shoot bullets.
 
 
 ## Compilation and Execution
@@ -23,12 +23,15 @@ g++ -o AsteroidGame main.cpp game.cpp asteroid.cpp player.cpp -lGL -lGLU -lglut
 ## Files
 
 **Source File:**
+- `bullet.cpp`: Handles bullet creation and shooting.
 - `asteroid.cpp`: Implements functionality and visual representation of asteroids.
-- `game.cpp`: Manages the main game loop, window handling, and overall game interaction.
+- `main.cpp`: Manages the main game loop, window handling, and overall game interaction.
 - `player.cpp`: Handles spaceship functionality, including movement and rendering.
+- `window.cpp`: Manages window handling.
 - `Makefile`: Contains the build instructions for the project.
 
 **Header Files:**
+- `bullet.h`: Bullet related functions.
 - `asteroid.h`: Declares asteroid-related functions and properties.
-- `game.h`:  Game logic; declarations of game-related functions and the `Game` class.
+- `window.h`:  Game logic; declarations of game-related functions.
 - `player.h`: Handles spaceship, declaring functions and properties related to the player.

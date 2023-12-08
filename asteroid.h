@@ -2,17 +2,23 @@
 #ifndef ASTEROID_H
 #define ASTEROID_H
 
-#define _USE_MATH_DEFINES
-#include "game.h"
-#include <cmath>
+#include "player.h"
+#include "bullet.h"
 
+class Asteroid {
 
-void drawAsteroid(float x, float y, float size);
+public:
+	float asteroidXPos{};
+	float asteroidYPos{};
+	float asteroidAngle{};
+	bool isNotHit{};
+	Asteroid() : asteroidXPos(0.0f), asteroidYPos(0.0f), asteroidAngle(0.0f), isNotHit(false) {}
+};
 
-void updateAsteroidPosition(float& x, float& y, float velocityX, float velocityY);
+void drawAsteroid(Asteroid& asteroid);
 
-void AsteroidMoving();
+void asteroidMoving();
 
-
+void makeAsteroid();
 
 #endif
