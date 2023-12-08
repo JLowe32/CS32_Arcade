@@ -134,12 +134,10 @@ bool checkShipAsteroidCollision()
 	// Handles Ship and Asteroid Collision by measursing the distance from the ship and asteroid
 	for (auto& asteroid : asteroids) 
 	{
-		float distanceSquared = (playShip.playerXPos - asteroid.asteroidXPos) * (playShip.playerXPos - asteroid.asteroidXPos) +
+		float distance = (playShip.playerXPos - asteroid.asteroidXPos) * (playShip.playerXPos - asteroid.asteroidXPos) +
 			(playShip.playerYPos - asteroid.asteroidYPos) * (playShip.playerYPos - asteroid.asteroidYPos);
 
-		float sumRadiiSquared = (10.0f + 20.0f) * (10.0f + 20.0f); 
-
-		if (distanceSquared <= sumRadiiSquared) 
+		if (distance <= (20.0f * 20.0f)) 
 		{
 			return true;  
 		}
@@ -158,12 +156,10 @@ bool checkBulletAsteroidCollision()
 			auto asteroidIt = asteroids.begin();
 			while (asteroidIt != asteroids.end()) 
 			{
-				float distanceSquared = (bullet.bulletXPos - asteroidIt->asteroidXPos) * (bullet.bulletXPos - asteroidIt->asteroidXPos) +
+				float distance = (bullet.bulletXPos - asteroidIt->asteroidXPos) * (bullet.bulletXPos - asteroidIt->asteroidXPos) +
 					(bullet.bulletYPos - asteroidIt->asteroidYPos) * (bullet.bulletYPos - asteroidIt->asteroidYPos);
 
-				float sumRadiiSquared = (2.0f + 20.0f) * (2.0f + 20.f); 
-
-				if (distanceSquared <= sumRadiiSquared) 
+				if (distance <= (20.0f * 20.0f)) 
 				{
 					bullet.isFired = false;  
 					asteroidIt = asteroids.erase(asteroidIt);  
@@ -178,6 +174,4 @@ bool checkBulletAsteroidCollision()
 	}
 	return false; 
 }
-
-
 
