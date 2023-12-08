@@ -3,13 +3,31 @@
 
 bool gameOver{ false };
 bool gameWin{ false };
+bool gameStarted = false;
 int score{ 0 };
 int totalLives{ 3 };
+
+void displayStartScreen() {
+    // Display start screen text
+    glPushMatrix();
+    glLoadIdentity();
+    glColor3f(1.0f, 1.0f, 1.0f); // White color
+    glRasterPos2i(-50, 0); // Position at the center
+
+    std::string startText = "Press Enter to Start";
+    for (char c : startText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+    glPopMatrix();
+}
 
 void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	if (!gameStarted) {
+		displayStartScreen();
+	} else {
 	drawPlayer();
 	
 	// Goes through the bullets vector, properly drawing each bullet
@@ -20,6 +38,7 @@ void render()
 			drawBullet(bullet);
 		}
 	}
+	
 
 	// Does the same like bullets, but for asteroids
 	for (auto& asteroid : asteroids) 
@@ -49,6 +68,7 @@ void render()
 	displayScore();
 
 	glutSwapBuffers();
+	}
 }
 
 void reshape(int w, int h)
@@ -94,10 +114,15 @@ void update(int value)
 
 	glutPostRedisplay();
 	glutTimerFunc(16, update, 0); 
+	glutSwapBuffers();
 }
 
 void keyboardInput(int key, int x, int y)
 {
+	if (!gameStarted && key == GLUT_KEY_ENTER) {
+        gameStarted = true; // Start the game
+    }
+	
 	switch (key)
 	{
 	case GLUT_KEY_UP:
@@ -188,7 +213,7 @@ bool checkBulletAsteroidCollision()
         score++; // Increment the score
         return true;
     }
-	
+
 }
 
 void displayScore() {

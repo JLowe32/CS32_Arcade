@@ -13,7 +13,7 @@
 extern Player playShip;
 extern std::vector<Bullet> bullets;
 extern std::vector<Asteroid> asteroids;
-
+extern bool gameStarted;
 
 
 // Functions to deal with Window Creation 
@@ -32,6 +32,7 @@ void spawnAsteroids();
 
 void displayScore();
 
+void displayStartScreen();
 
 
 // Functions to deal with Collision
@@ -39,6 +40,7 @@ void displayScore();
 bool checkShipAsteroidCollision();
 
 bool checkBulletAsteroidCollision();
+
 
 
 #endif
