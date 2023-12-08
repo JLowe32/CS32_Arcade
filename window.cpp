@@ -31,19 +31,18 @@ void render()
 	}
 
 	// Creates messageBoxes depending on winning or losing 
-
-	/*if (gameOver)
+	//Runs on Windows, not on Linux! Only comment out if using on CSIL Linux
+	if (gameOver)
 	{
-		MessageBox(NULL, L"Game Over", L"Game Over", 0);
+		//MessageBox(NULL, L"Game Over", L"Game Over", 0);
 		exit(0);
 	}
 
 	if (gameWin)
 	{
-		MessageBox(NULL, L"You Win!", L"You Win!", 0);
+		//MessageBox(NULL, L"You Win!", L"You Win!", 0);
 		exit(0);
 	}
-	*/
 	glutSwapBuffers();
 }
 
