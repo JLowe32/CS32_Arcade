@@ -32,7 +32,7 @@ void render()
 
 	// Creates messageBoxes depending on winning or losing 
 
-	if (gameOver)
+	/*if (gameOver)
 	{
 		MessageBox(NULL, L"Game Over", L"Game Over", 0);
 		exit(0);
@@ -43,7 +43,7 @@ void render()
 		MessageBox(NULL, L"You Win!", L"You Win!", 0);
 		exit(0);
 	}
-
+	*/
 	glutSwapBuffers();
 }
 
