@@ -33,7 +33,7 @@ clean:
 
 # Dependencies
 main.o: window.h
-window.o: player.h asteroid.h bullet.h
+window.o: window.h player.h asteroid.h bullet.h
 asteroid.o: asteroid.h
 player.o: player.h
 bullet.o: bullet.h
