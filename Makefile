@@ -11,7 +11,7 @@ LFLAGS = -lGL -lGLU -lglut
 EXE = AsteroidGame
 
 # Source files
-SOURCES = main.cpp game.cpp asteroid.cpp player.cpp
+SOURCES = main.cpp window.cpp asteroid.cpp player.cpp bullet.cpp
 
 # Object files
 OBJECTS = $(SOURCES:.cpp=.o)
@@ -32,7 +32,8 @@ clean:
 	rm -f $(EXE) $(OBJECTS)
 
 # Dependencies
-main.o: game.h
-game.o: game.h player.h asteroid.h
+main.o: window.h
+window.o: player.h asteroid.h bullet.h
 asteroid.o: asteroid.h
 player.o: player.h
+bullet.o: bullet.h
