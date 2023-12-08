@@ -21,13 +21,29 @@ void displayStartScreen() {
     glPopMatrix();
 }
 
+void displayEndScreen() {
+    glPushMatrix();
+    glLoadIdentity();
+    glColor3f(1.0f, 0.0f, 0.0f); // Red color for game over text
+    glRasterPos2i(-50, 0); // Position at the center
+
+    std::string endText = "Game Over! Press R to Restart";
+    for (char c : endText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+    glPopMatrix();
+}
+
+
 void render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	if (!gameStarted) {
-		displayStartScreen();
-	} else {
+        displayStartScreen();
+    } else if (gameOver) {
+        displayEndScreen();
+    } else {
 	drawPlayer();
 	
 	// Goes through the bullets vector, properly drawing each bullet
@@ -67,7 +83,6 @@ void render()
 
 	displayScore();
 
-	glutSwapBuffers();
 	}
 }
 
@@ -122,7 +137,13 @@ void keyboardInput(int key, int x, int y)
 	if (!gameStarted && key == GLUT_KEY_ENTER) {
         gameStarted = true; // Start the game
     }
-	
+
+	if (gameOver && key == 'r') {
+        gameOver = false;
+        gameStarted = true;
+        // Reset game state (reset score, lives, etc.)
+    }
+
 	switch (key)
 	{
 	case GLUT_KEY_UP:

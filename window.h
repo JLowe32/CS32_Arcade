@@ -34,6 +34,7 @@ void displayScore();
 
 void displayStartScreen();
 
+void displayEndScreen();
 
 // Functions to deal with Collision
 
