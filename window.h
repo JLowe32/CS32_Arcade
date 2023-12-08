@@ -30,6 +30,9 @@ void keyboardInputPressed(int key, int x, int y);
 
 void spawnAsteroids();
 
+void displayScore();
+
+
 
 // Functions to deal with Collision
 

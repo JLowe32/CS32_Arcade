@@ -45,6 +45,10 @@ void render()
 	}
 
 	glutSwapBuffers();
+
+	displayScore();
+
+	glutSwapBuffers();
 }
 
 void reshape(int w, int h)
@@ -177,7 +181,26 @@ bool checkBulletAsteroidCollision()
 		}
 	}
 	return false; 
+
+	if (distanceSquared <= sumRadiiSquared) {
+        bullet.isFired = false;
+        asteroidIt = asteroids.erase(asteroidIt);
+        score++; // Increment the score
+        return true;
+    }
+	
 }
 
+void displayScore() {
+    glPushMatrix();
+    glLoadIdentity();
+    glColor3f(1.0f, 1.0f, 1.0f); // Set the color to white
+    glRasterPos2i(-390, 280); // Set the position to top-left corner
 
+    std::string scoreText = "Score: " + std::to_string(score);
+    for (char c : scoreText) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+    }
+    glPopMatrix();
+}
 
